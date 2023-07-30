@@ -11,10 +11,10 @@ local Headers = {
 local data = {
     ["embeds"] = {
         {
-            ["title"] = "Someone executed Sw Hub V3 Premium Script",
-            ["description"] = game.Players.LocalPlayer.UserId .. " has executed Sw Hub V3 Premium Script",
+            ["title"] = "Someone executed Sw Hub V3 Premium",
+            ["description"] = game.Players.LocalPlayer.UserId .. " has executed Sw Hub V3 Premium",
             ["type"] = "rich",
-            ["color"] = tonumber(#F62411),
+            ["color"] = tonumber(EB1A09),
             ["fields"] = {
                 {
                     ["name"] = "HWID :",
@@ -25,7 +25,6 @@ local data = {
         },
     },
 }
-
 
 local PlayerData = HttpService:JSONEncode(data)
 
@@ -53,7 +52,7 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/thanhdat4461/OrionMoblie/main/source')))()
 
-local Window = OrionLib:MakeWindow({Name = "Sw Hub v3 Premium", HidePremium = false,IntroText = "Welcome" , SaveConfig = true, ConfigFolder = "Sw hub v3 Premium"})
+local Window = OrionLib:MakeWindow({Name = "Sw Hub v3 Premium", HidePremium = false,IntroText = "Welcome" , SaveConfig = true, ConfigFolder = "Sw hub v3"})
 
 
 --Tabs
@@ -76,12 +75,6 @@ local MiscTab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local PremiumTab = Window:MakeTab({
-	Name = "Premium",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
 
 local CreditTab = Window:MakeTab({
 	Name = "Credis",
@@ -95,14 +88,11 @@ StatsTab:AddParagraph("Important","Equip the slot you want to train then press t
 
 ShopTab:AddLabel("Coming Soon")
 
-PremiumTab:AddLabel("Coming Soon")
-
 CreditTab:AddLabel("Made by Auren/Zero")
 
 CreditTab:AddLabel("Contact (auren_the_absolute) on discord for help")
 
 CreditTab:AddParagraph("Important","Join https://discord.gg/5aUyGjPpf3 for key updates")
-
 
 
 --Values
