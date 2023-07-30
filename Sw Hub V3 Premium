@@ -86,8 +86,8 @@ local CreditTab = Window:MakeTab({
 
 StatsTab:AddParagraph("Important","Equip the slot you want to train then press the toggle button to start train (Only one stat at a time)")
 
-ShopTab:AddLabel("Coming Soon")
-
+ShopTab:AddLabel("Press the button to get a champion")
+ 
 CreditTab:AddLabel("Made by Auren/Zero")
 
 CreditTab:AddLabel("Contact (auren_the_absolute) on discord for help")
