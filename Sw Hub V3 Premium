@@ -222,7 +222,28 @@ StatsTab:AddToggle({
 
 --Buttons
 
- 
+ShopTabTab:AddButton({
+	Name = "Buy Champion",
+	Callback = function()
+      		local args = {
+        [1] = "Roll",
+        [2] = "Champion Capsule",
+        [3] = 1
+    }
+    
+    local remoteEvent = game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Champions/RemoteEvent")
+    
+    local delayBetweenCalls = 10  
+    
+    while true do
+        for i = 1, 10 do 
+            args[3] = i 
+            remoteEvent:FireServer(unpack(args))
+            wait(delayBetweenCalls)
+        end
+    end
+  	end    
+})
 
 MiscTab:AddButton({
 	Name = "Unlock Gamepasses(Might not work)",
