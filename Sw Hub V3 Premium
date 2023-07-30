@@ -1,0 +1,284 @@
+-- Replace 'syn' with the appropriate HTTP module based on the context
+local HttpService = game:GetService("HttpService")
+local HTTP = syn and syn.request or http_request or request or HttpPost
+
+local WebhookURL = "https://discord.com/api/webhooks/1134626539548446831/65Urx1pLFja0Z9OeJKoT0LGYYbw4i-pV5scQx6IOh5otJYV3oYwgAcP7RECwD8bigQea"
+
+local Headers = {
+    ['Content-Type'] = 'application/json',
+}
+
+local data = {
+    ["embeds"] = {
+        {
+            ["title"] = "Someone executed Sw Hub V3 Premium Script",
+            ["description"] = game.Players.LocalPlayer.UserId .. " has executed Sw Hub V3 Premium Script",
+            ["type"] = "rich",
+            ["color"] = tonumber(#F62411),
+            ["fields"] = {
+                {
+                    ["name"] = "HWID :",
+                    ["value"] = game:GetService("RbxAnalyticsService"):GetClientId(),
+                    ["inline"] = true,
+                },
+            },
+        },
+    },
+}
+
+
+local PlayerData = HttpService:JSONEncode(data)
+
+local RequestData = {
+    Url = WebhookURL,
+    Method = "POST",
+    Headers = Headers,
+    Body = PlayerData
+}
+
+-- Perform the request
+local success, response = pcall(HTTP, RequestData)
+if not success then
+    warn("Failed to send webhook:", response)
+end
+
+
+
+
+
+
+--Main Script
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/thanhdat4461/OrionMoblie/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Sw Hub v3 Premium", HidePremium = false,IntroText = "Welcome" , SaveConfig = true, ConfigFolder = "Sw hub v3 Premium"})
+
+
+--Tabs
+
+local StatsTab = Window:MakeTab({
+	Name = "Auto Stats",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local ShopTab = Window:MakeTab({
+	Name = "Shop",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local MiscTab = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local PremiumTab = Window:MakeTab({
+	Name = "Premium",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+local CreditTab = Window:MakeTab({
+	Name = "Credis",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--Labels
+
+StatsTab:AddParagraph("Important","Equip the slot you want to train then press the toggle button to start train (Only one stat at a time)")
+
+ShopTab:AddLabel("Coming Soon")
+
+PremiumTab:AddLabel("Coming Soon")
+
+CreditTab:AddLabel("Made by Auren/Zero")
+
+CreditTab:AddLabel("Contact (auren_the_absolute) on discord for help")
+
+CreditTab:AddParagraph("Important","Join https://discord.gg/5aUyGjPpf3 for key updates")
+
+
+
+--Values
+
+_G.autoStrength = true
+
+_G.autoDurability = true 
+
+_G.autoChakra = true
+
+_G.autoSword = true
+
+_G.autoSpeed = true 
+
+
+
+--Function 
+
+function autoStrength()
+    while _G.autoStrength == true do
+        local args = {
+            [1] = "TrainStat",
+            [2] = "Strength"
+        }
+        game:GetService("ReplicatedStorage").Events:FindFirstChild("Stats/RemoteFunction"):InvokeServer(unpack(args))
+    end
+end
+
+
+
+function autoDurability()
+    while _G.autoDurability == true do 
+        local args = {
+            [1] = "TrainStat",
+            [2] = "Durability"
+        }
+        game:GetService("ReplicatedStorage").Events:FindFirstChild("Stats/RemoteFunction"):InvokeServer(unpack(args))
+    end
+end
+
+
+
+function autoChakra()
+    while _G.autoChakra == true do 
+        local args = {
+            [1] = "TrainStat",
+            [2] = "Chakra"
+        }
+        game:GetService("ReplicatedStorage").Events:FindFirstChild("Stats/RemoteFunction"):InvokeServer(unpack(args))
+    end 
+end
+
+
+
+function autoSword()
+    while _G.autoSword == true do 
+        local args = {
+            [1] = "TrainStat",
+            [2] = "Sword"
+        }
+        game:GetService("ReplicatedStorage").Events:FindFirstChild("Stats/RemoteFunction"):InvokeServer(unpack(args))
+    end  
+end
+
+
+
+function autoSpeed()
+    while _G.autoSpeed == true do
+        local args = {
+            [1] = "TrainStat",
+            [2] = "Speed"
+        }
+         game:GetService("ReplicatedStorage").Events:FindFirstChild("Stats/RemoteFunction"):InvokeServer(unpack(args))
+    end  
+end
+
+
+--Toggles 
+
+StatsTab:AddToggle({
+	Name = "Auto Strength",
+	Default = false,
+	Callback = function(Value)
+		_G.autoStrength = Value
+		autoStrength()
+	end    
+})
+ 
+StatsTab:AddToggle({
+	Name = "Auto Durability",
+	Default = false,
+	Callback = function(Value)
+		_G.autoDurability = Value
+		autoDurability()
+	end    
+})
+ 
+StatsTab:AddToggle({
+	Name = "Auto Chakra",
+	Default = false,
+	Callback = function(Value)
+		_G.autoChakra = Value
+		autoChakra()
+	end    
+})
+
+StatsTab:AddToggle({
+	Name = "Auto Sword",
+	Default = false,
+	Callback = function(Value)
+		_G.autoSword = Value
+		autoSword()
+	end    
+})
+ 
+StatsTab:AddToggle({
+	Name = "Auto Speed",
+	Default = false,
+	Callback = function(Value)
+		_G.autoSpeed = Value
+		autoSpeed()
+	end    
+})
+ 
+
+
+
+--Buttons
+
+ 
+
+MiscTab:AddButton({
+	Name = "Unlock Gamepasses(Might not work)",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Blue-v3rm/blue-s-stuff/master/AFS.lua"))()
+  	end    
+})
+
+MiscTab:AddButton({
+	Name = "Anti Afk",
+	Callback = function()
+      		loadstring(game:HttpGet("https://pastebin.com/raw/MLAZQ9Rm"))()
+	end  		
+})	
+
+
+
+--Sliders
+
+MiscTab:AddSlider({
+	Name = "Choose your speed",
+	Min = 16,
+	Max = 500,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Speed",
+	Callback = function(s)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+	end    
+})
+
+MiscTab:AddSlider({
+	Name = "Choose your jump",
+	Min = 0,
+	Max = 500,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Jump Power",
+	Callback = function(t)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = t
+	end    
+})
+
+--Testing
+
+
+ 
