@@ -222,7 +222,7 @@ StatsTab:AddToggle({
 
 --Buttons
 
-ShopTabTab:AddButton({
+ShopTab:AddButton({
 	Name = "Buy Champion",
 	Callback = function()
       		local args = {
