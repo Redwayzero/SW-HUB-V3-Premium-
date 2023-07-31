@@ -256,16 +256,44 @@ ShopTab:AddToggle({
 TeleportTab:AddButton({
 	Name = "Spawn",
 	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-43.2389297, 58.3690147, -209.710983, -0.269490033, -0.0270275325, 0.962623775, 1.60591647e-08, 0.999606073, 0.0280658901, -0.963003159, 0.00756349042, -0.269383878)
   	end    
 })
 
+TeleportTab:AddButton({
+	Name = "Upcoming Bosses",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-43.2389297, 58.3597031, -209.710983, -0.269490033, -0.0270274729, 0.962623775, -1.17985888e-08, 0.999606073, 0.0280658156, -0.963003159, 0.00756344572, -0.269383878)
+  	end    
+})
 
+TeleportTab:AddButton({
+	Name = "Pain Boss",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-88.9517822, 61.0019646, -140.981094, -0.975726187, 0.00614623353, -0.218907893, -3.69817137e-08, 0.999606073, 0.028065905, 0.218994141, 0.0273846388, -0.975341797)
+  	end    
+})
 
+TeleportTab:AddButton({
+	Name = "Monkey Boss",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-113.442535, 57.97715, -163.62616, -0.974821389, 0.00625830889, -0.222899273, 1.76111292e-09, 0.999606073, 0.0280657709, 0.222987115, 0.0273591131, -0.974437356)
+  	end    
+})
 
+TeleportTab:AddButton({
+	Name = "Arlongo/Titan Boss",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1489.85461, 24.4819717, -165.415878, -0.0156296827, -0.0280624181, 0.999483943, -1.29106645e-08, 0.999606073, 0.0280658603, -0.99987787, 0.000438647578, -0.0156235257)
+  	end    
+})
 
-
-
+TeleportTab:AddButton({
+	Name = "Hand Demon Boss",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1794.66101, 175.624832, -2741.56274, 0.0650008544, 0.0280064642, -0.997492135, 4.15413837e-09, 0.999606073, 0.0280658305, 0.997885227, -0.00182430726, 0.0649752468)
+  	end    
+})
 
 MiscTab:AddButton({
 	Name = "Unlock Gamepasses(Might not work)",
