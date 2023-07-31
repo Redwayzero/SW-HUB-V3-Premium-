@@ -229,43 +229,52 @@ StatsTab:AddToggle({
 
 --Buttons
 
+local isToggled = false -- Initialize the toggle state
+
 ShopTab:AddToggle({
-	Name = "Buy Champion",
-	Default = false,
-	Callback = function(Value)
-		local args = {
-        [1] = "Roll",
-        [2] = "Champion Capsule",
-        [3] = 1
-    }
-    
-    local remoteEvent = game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Champions/RemoteEvent")
-    
-    local delayBetweenCalls = 10  
-    
-    while true do
-        for i = 1, 10 do 
-            args[3] = i 
-            remoteEvent:FireServer(unpack(args))
-            wait(delayBetweenCalls)
+    Name = "Buy Champion",
+    Default = false,
+    Callback = function(Value)
+        isToggled = Value -- Update the toggle state when it's changed
+
+        local args = {
+            [1] = "Roll",
+            [2] = "Champion Capsule",
+            [3] = 1
+        }
+
+        local remoteEvent = game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Champions/RemoteEvent")
+
+        local delayBetweenCalls = 10
+
+        while isToggled do -- Only execute the loop when the toggle is on
+            for i = 1, 10 do 
+                args[3] = i 
+                remoteEvent:FireServer(unpack(args))
+                wait(delayBetweenCalls)
+            end
         end
     end
-	end    
+})
+
+ 
+
+TeleportTab:AddButton({
+    Name = "Spawn",
+    Callback = function()
+        local spawnCFrame = CFrame.new(-43.2389297, 58.3690147, -209.710983, -0.269490033, -0.0270275325, 0.962623775, 1.60591647e-08, 0.999606073, 0.0280658901, -0.963003159, 0.00756349042, -0.269383878)
+        game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(spawnCFrame)
+    end
 })
 
 TeleportTab:AddButton({
-	Name = "Spawn",
-	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-43.2389297, 58.3690147, -209.710983, -0.269490033, -0.0270275325, 0.962623775, 1.60591647e-08, 0.999606073, 0.0280658901, -0.963003159, 0.00756349042, -0.269383878)
-  	end    
+    Name = "Upcoming Bosses",
+    Callback = function()
+        local teleportCFrame = CFrame.new(-43.2389297, 58.3597031, -209.710983, -0.269490033, -0.0270274729, 0.962623775, -1.17985888e-08, 0.999606073, 0.0280658156, -0.963003159, 0.00756344572, -0.269383878)
+        game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(teleportCFrame)
+    end
 })
 
-TeleportTab:AddButton({
-	Name = "Upcoming Bosses",
-	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-43.2389297, 58.3597031, -209.710983, -0.269490033, -0.0270274729, 0.962623775, -1.17985888e-08, 0.999606073, 0.0280658156, -0.963003159, 0.00756344572, -0.269383878)
-  	end    
-})
 
 TeleportTab:AddButton({
 	Name = "Pain Boss",
