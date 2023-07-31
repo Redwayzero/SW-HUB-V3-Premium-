@@ -69,12 +69,17 @@ local ShopTab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+local TeleportTab = Window:MakeTab({
+	Name = "Teleport",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
 local MiscTab = Window:MakeTab({
 	Name = "Misc",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-
 
 local CreditTab = Window:MakeTab({
 	Name = "Credis",
@@ -87,6 +92,8 @@ local CreditTab = Window:MakeTab({
 StatsTab:AddParagraph("Important","Equip the slot you want to train then press the toggle button to start train (Only one stat at a time)")
 
 ShopTab:AddLabel("Press the button to get a champion")
+ 
+TeleportTab:AddParagraph("Important","Work in progress")
  
 CreditTab:AddLabel("Made by Auren/Zero")
 
@@ -222,10 +229,11 @@ StatsTab:AddToggle({
 
 --Buttons
 
-ShopTab:AddButton({
+ShopTab:AddToggle({
 	Name = "Buy Champion",
-	Callback = function()
-      		local args = {
+	Default = false,
+	Callback = function(Value)
+		local args = {
         [1] = "Roll",
         [2] = "Champion Capsule",
         [3] = 1
@@ -242,8 +250,22 @@ ShopTab:AddButton({
             wait(delayBetweenCalls)
         end
     end
+	end    
+})
+
+TeleportTab:AddButton({
+	Name = "Spawn",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
   	end    
 })
+
+
+
+
+
+
+
 
 MiscTab:AddButton({
 	Name = "Unlock Gamepasses(Might not work)",
