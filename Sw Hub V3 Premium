@@ -93,7 +93,7 @@ StatsTab:AddParagraph("Important","Equip the slot you want to train then press t
 
 ShopTab:AddLabel("Press the button to get a champion")
  
-TeleportTab:AddParagraph("Important","Work in progress")
+TeleportTab:AddParagraph("Important","Press a Button to Teleport to there")
  
 CreditTab:AddLabel("Made by Auren/Zero")
 
