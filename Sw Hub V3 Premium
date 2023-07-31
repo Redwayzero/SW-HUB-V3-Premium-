@@ -257,53 +257,66 @@ ShopTab:AddToggle({
     end
 })
 
- 
+--Teleport buttons
 
 TeleportTab:AddButton({
-    Name = "Spawn",
-    Callback = function()
-        local spawnCFrame = CFrame.new(-43.2389297, 58.3690147, -209.710983, -0.269490033, -0.0270275325, 0.962623775, 1.60591647e-08, 0.999606073, 0.0280658901, -0.963003159, 0.00756349042, -0.269383878)
-        game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(spawnCFrame)
-    end
-})
-
-TeleportTab:AddButton({
-    Name = "Upcoming Bosses",
-    Callback = function()
-        local teleportCFrame = CFrame.new(-43.2389297, 58.3597031, -209.710983, -0.269490033, -0.0270274729, 0.962623775, -1.17985888e-08, 0.999606073, 0.0280658156, -0.963003159, 0.00756344572, -0.269383878)
-        game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(teleportCFrame)
-    end
-})
-
-
-TeleportTab:AddButton({
-	Name = "Pain Boss",
+	Name = "Spawn",
 	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-88.9517822, 61.0019646, -140.981094, -0.975726187, 0.00614623353, -0.218907893, -3.69817137e-08, 0.999606073, 0.028065905, 0.218994141, 0.0273846388, -0.975341797)
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-43.4159622, 58.2982254, -209.374878, -0.195524856, -0.0275241286, 0.980312467, -1.12382426e-09, 0.999606073, 0.0280658454, -0.980698764, 0.0054875724, -0.195447832) 
   	end    
 })
 
 TeleportTab:AddButton({
-	Name = "Monkey Boss",
+	Name = "Upcoming Bosses",
 	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-113.442535, 57.97715, -163.62616, -0.974821389, 0.00625830889, -0.222899273, 1.76111292e-09, 0.999606073, 0.0280657709, 0.222987115, 0.0273591131, -0.974437356)
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-88.8156204, 60.9788742, -142.679306, -0.982599378, 0.00521290675, -0.185664326, 6.94285429e-09, 0.999606013, 0.0280659348, 0.185737506, 0.0275775641, -0.982212245)
+  	end    
+})
+
+TeleportTab:AddButton({
+	Name = "Pain Boss",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-112.696823, 58.042923, -161.505844, -0.970859289, 0.00672595948, -0.239555746, -1.05767963e-08, 0.999606073, 0.0280658007, 0.239650145, 0.0272479504, -0.970476866)
   	end    
 })
 
 TeleportTab:AddButton({
 	Name = "Arlongo/Titan Boss",
 	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1489.85461, 24.4819717, -165.415878, -0.0156296827, -0.0280624181, 0.999483943, -1.29106645e-08, 0.999606073, 0.0280658603, -0.99987787, 0.000438647578, -0.0156235257)
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1887.54822, 175.626907, -2796.31665, -0.693595231, 0.0202176422, -0.720081151, -3.13400363e-08, 0.999606073, 0.0280658752, 0.720364928, 0.0194663703, -0.693321943) 
   	end    
 })
 
 TeleportTab:AddButton({
 	Name = "Hand Demon Boss",
 	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1794.66101, 175.624832, -2741.56274, 0.0650008544, 0.0280064642, -0.997492135, 4.15413837e-09, 0.999606073, 0.0280658305, 0.997885227, -0.00182430726, 0.0649752468)
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-716.011292, 174.119843, -2125.1062, 0.997065008, 0.00214871485, -0.076529406, -5.4550866e-09, 0.999606073, 0.0280658603, 0.076559566, -0.0279834718, 0.996672213)
   	end    
 })
 
+TeleportTab:AddButton({
+	Name = "Shukaku Boss",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1423.92163, 14.1616898, -627.78186, -0.389837921, 0.0258453786, -0.920520663, 2.01639061e-08, 0.999606073, 0.0280658454, 0.920883477, 0.0109411106, -0.389684379)
+  	end    
+})
+
+TeleportTab:AddButton({
+	Name = "Friezy Boss",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1070.66699, 34.8702698, 1767.75757, -0.226204917, 0.0273384303, -0.973696053, -1.05148255e-08, 0.999606013, 0.0280659348, 0.974079728, 0.00634866208, -0.226115793)
+  	end    
+})
+
+TeleportTab:AddButton({
+	Name = "Monkey Boss",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1507.86157, 24.4949226, -172.98378, 0.118722826, -0.0278674215, 0.992536306, -3.15545279e-08, 0.999606073, 0.028065905, -0.992927432, -0.00333209336, 0.118676059)
+  	end    
+})
+
+--Misc Buttons
+ 
 MiscTab:AddButton({
 	Name = "Unlock Gamepasses(Might not work)",
 	Callback = function()
