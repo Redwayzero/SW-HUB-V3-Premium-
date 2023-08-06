@@ -247,32 +247,46 @@ StatsTab:AddToggle({
 
 local isToggled = false -- Initialize the toggle state
 
-ShopTab:AddToggle({
+local toggleButton = ShopTab:AddToggle({
     Name = "Buy Champion",
     Default = false,
     Callback = function(Value)
         isToggled = Value -- Update the toggle state when it's changed
-
-        local args = {
-            [1] = "Roll",
-            [2] = "Champion Capsule",
-            [3] = 1
-        }
-
-        local remoteEvent = game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Champions/RemoteEvent")
-
-        local delayBetweenCalls = 10
-
-        while isToggled do -- Only execute the loop when the toggle is on
-            for i = 1, 10 do 
-                args[3] = i 
-                remoteEvent:FireServer(unpack(args))
-                wait(delayBetweenCalls)
-            end
-        end
     end
 })
 
+local function buyChampions()
+    local args = {
+        [1] = "Roll",
+        [2] = "Champion Capsule",
+        [3] = 1
+    }
+
+    local remoteEvent = game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Champions/RemoteEvent")
+
+    local delayBetweenCalls = 10
+
+    while isToggled do -- Only execute the loop when the toggle is on
+        for i = 1, 10 do 
+            args[3] = i 
+            remoteEvent:FireServer(unpack(args))
+            wait(delayBetweenCalls)
+        end
+    end
+end
+
+toggleButton.Activated:Connect(function()
+    if isToggled then
+        isToggled = false -- Turn off the toggle when activated
+    else
+        isToggled = true -- Turn on the toggle when activated
+        buyChampions() -- Start the loop when the toggle is turned on
+    end
+end)
+
+
+
+ 
 --Teleport Buttons
 
 TeleportTab:AddButton({
@@ -501,9 +515,33 @@ TrainingTab:AddButton({
   	end    
 })
 
+TrainingTab:AddButton({
+	Name = "100B Strength",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1597.74243, 101.202553, 836.1203, 0.0903801546, -1.07009626e-07, -0.995907366, 3.8850736e-08, 1, -1.03923611e-07, 0.995907366, -2.92991018e-08, 0.0903801546)
+  	end    
+})
 
+TrainingTab:AddButton({
+	Name = "100B Durability",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1173.4342, 91.2082062, 1658.82104, 0.979379952, 4.44638708e-08, -0.202026889, -3.65903112e-08, 1, 4.27074482e-08, 0.202026889, -3.44345921e-08, 0.979379952)
+  	end    
+})
 
+TrainingTab:AddButton({
+	Name = "100B Chakra",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1352.60522, 107.611198, 2275.65527, 0.898652554, 2.69899686e-10, -0.438661098, 2.79479981e-11, 1, 6.72535583e-10, 0.438661098, -6.16635576e-10, 0.898652554)
+  	end    
+})
 
+TrainingTab:AddButton({
+	Name = "1M Speed",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1146.42078, 66.1392975, 2368.9873, -0.899719894, 1.7811276e-08, 0.436467797, 1.00238031e-08, 1, -2.01450394e-08, -0.436467797, -1.37498253e-08, -0.899719894)
+  	end    
+})
 
 
 
