@@ -245,35 +245,26 @@ StatsTab:AddToggle({
 
 --Buttons
 
-ShopTab:AddToggle({
-    Name = "Auto Buy Champion",
-    Default = false,
-    Callback = function(Value)
-        isToggled = Value -- Update the toggle state when it's changed
-
-        local args = {
-            [1] = "Roll",
-            [2] = "Champion Capsule",
-            [3] = 1
-        }
-
-        local remoteEvent = game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Champions/RemoteEvent")
-
-        local delayBetweenCalls = 10
-
-        while isToggled do -- Only execute the loop when the toggle is on
-            for i = 1, 10 do 
-                args[3] = i 
-                remoteEvent:FireServer(unpack(args))
-                wait(delayBetweenCalls)
-            end
-        end
-    end
+ShopTab:AddButton({
+	Name = "Champions",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(105.747452, 63.2139969, -248.049377, 0.333458453, -4.39484715e-08, -0.942764819, -8.06607261e-08, 1, -7.51464952e-08, 0.942764819, 1.01102323e-07, 0.333458453)
+  	end    
 })
  
- 
+ShopTab:AddButton({
+	Name = "Stands",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-291.969971, 14.0979271, -42.8779602, -0.012103321, 3.14120641e-08, 0.999926746, 1.89131732e-08, 1, -3.11854365e-08, -0.999926746, 1.85343403e-08, -0.012103321)
+  	end    
+})
 
-
+ShopTab:AddButton({
+	Name = "Quirks",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-769.090271, 67.1734085, 1530.55005, 0.500536919, -5.59429125e-09, 0.865715206, 6.48588905e-10, 1, 6.08704642e-09, -0.865715206, -2.48529819e-09, 0.500536919)
+  	end    
+})
  
  
 --Teleport Buttons
