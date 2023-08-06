@@ -103,9 +103,9 @@ local CreditTab = Window:MakeTab({
 
 StatsTab:AddParagraph("Important","Equip the slot you want to train then press the toggle button to start train (Only one stat at a time)")
 
-ShopTab:AddLabel("Press the button to get a champion")
+ShopTab:AddLabel("Press the button to tp to your destination")
  
-TeleportTab:AddParagraph("Important","Press a Button to Teleport to there")
+TeleportTab:AddParagraph("Important","Press a Button to Teleport to places")
  
 TrainingTab:AddParagraph("Important","Press the button to Teleport to that training zone")
  
@@ -548,9 +548,9 @@ MiscTab:AddButton({
 
 MiscTab:AddSlider({
 	Name = "Choose your speed",
-	Min = 16,
+	Min = 20,
 	Max = 500,
-	Default = 16,
+	Default = 20,
 	Color = Color3.fromRGB(255,255,255),
 	Increment = 1,
 	ValueName = "Speed",
