@@ -245,47 +245,36 @@ StatsTab:AddToggle({
 
 --Buttons
 
-local isToggled = false -- Initialize the toggle state
-
-local toggleButton = ShopTab:AddToggle({
-    Name = "Buy Champion",
+ShopTab:AddToggle({
+    Name = "Auto Buy Champion",
     Default = false,
     Callback = function(Value)
         isToggled = Value -- Update the toggle state when it's changed
-    end
-})
 
-local function buyChampions()
-    local args = {
-        [1] = "Roll",
-        [2] = "Champion Capsule",
-        [3] = 1
-    }
+        local args = {
+            [1] = "Roll",
+            [2] = "Champion Capsule",
+            [3] = 1
+        }
 
-    local remoteEvent = game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Champions/RemoteEvent")
+        local remoteEvent = game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Champions/RemoteEvent")
 
-    local delayBetweenCalls = 10
+        local delayBetweenCalls = 10
 
-    while isToggled do -- Only execute the loop when the toggle is on
-        for i = 1, 10 do 
-            args[3] = i 
-            remoteEvent:FireServer(unpack(args))
-            wait(delayBetweenCalls)
+        while isToggled do -- Only execute the loop when the toggle is on
+            for i = 1, 10 do 
+                args[3] = i 
+                remoteEvent:FireServer(unpack(args))
+                wait(delayBetweenCalls)
+            end
         end
     end
-end
-
-toggleButton.Activated:Connect(function()
-    if isToggled then
-        isToggled = false -- Turn off the toggle when activated
-    else
-        isToggled = true -- Turn on the toggle when activated
-        buyChampions() -- Start the loop when the toggle is turned on
-    end
-end)
+})
+ 
+ 
 
 
-
+ 
  
 --Teleport Buttons
 
